@@ -1,5 +1,5 @@
 const artworkRoot='assets/images/optimized/';
-const collectionFilters={'The Beauty We Carry':'beauty','The Boy King':'boy-king','Les Non-Dits':'les-non-dits','Iretiola':'iretiola','Flower':'flower','Echoes of the Mind':'echoes','Escapade':'escapade','Love & Bond':'love-bond','The Weight of We':'weight','Miniatures':'miniatures','African Woman':'african-woman','African Boy':'african-boy','Abstract Art':'abstract'};
+const collectionFilters={'The Beauty We Carry':'beauty','The Boy King':'boy-king','Les Non-Dits':'les-non-dits','Iretiola':'iretiola','Petal of Becoming':'flower','Echoes of the Mind':'echoes','Escapade':'escapade','Love & Bond':'love-bond','The Weight of We':'weight','Miniatures':'miniatures','African Woman':'african-woman','African Boy':'african-boy','Abstract Art':'abstract'};
 const artwork=(title,collection,file)=>({title,collection,filter:collectionFilters[collection],image:`${artworkRoot}${file.replace(/\.(?:jpe?g)$/i,'.webp')}`,description:`${title}, from the ${collection} collection. Contact Faith for availability and purchase details.`});
 const artworks=[
  artwork('The Beauty We Carry I','The Beauty We Carry','2026/THE BEAUTY WE CARRY I.jpg'),
@@ -11,9 +11,9 @@ const artworks=[
  artwork('Les Non-Dits II','Les Non-Dits','2026/Les Non-Dits (THE UNSAID) II.jpeg'),
  artwork('Les Non-Dits III','Les Non-Dits','2026/Les Non-Dits (THE UNSAID) III.jpeg'),
  artwork('Iretiola','Iretiola','2026/GBADERO FAITH-IRETIOLA-19X23.3INCHES.jpg'),
- artwork('Flower I','Flower','2026/IMG_3588.jpg'),
- artwork('Flower II','Flower','2026/IMG_3591.jpg'),
- artwork('Flower III','Flower','2026/IMG_3598.jpg'),
+ artwork('Petal of Becoming I','Petal of Becoming','2026/IMG_3588.jpg'),
+ artwork('Petal of Becoming II','Petal of Becoming','2026/IMG_3591.jpg'),
+ artwork('Petal of Becoming III','Petal of Becoming','2026/IMG_3598.jpg'),
  artwork('Echoes of the Mind I','Echoes of the Mind','2026/Gbadero Faith-2D-Echoes of the Mind1-Oil -20X24-2025.jpg'),
  artwork('Echoes of the Mind II','Echoes of the Mind','2026/Gbadero Faith-2D-Echoes of the Mind 2-Oil- 20 X24-2025.jpg'),
  artwork('Escapade I','Escapade','2026/ESCAPADE I.jpg'),
