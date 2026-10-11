@@ -44,7 +44,7 @@
         <div class="hero-actions"><a class="button button-dark" href="#works">Explore Works <span>↗</span></a><a class="button button-outline" href="#about">About Faith <span>↓</span></a><a class="button button-outline" href="mailto:gbaderofaitha@gmail.com?subject=Artwork%20Inquiry%20-%20Faith%20Gbadero&amp;body=Hello%20Faith%2C%0A%0AI%27d%20love%20to%20learn%20more%20about%20your%20artwork%20and%20availability.%0A%0AThank%20you%2C%0A">Contact Faith <span>↗</span></a></div>
       </div>
       <div class="hero-art">
-        <img src="assets/images/IMG_0613.JPG.jpg" alt="Faith Gbadero viewing paintings in an exhibition space" />
+        <img src="assets/images/IMG_0613.JPG.jpg" alt="Faith Gbadero viewing paintings in an exhibition space" loading="eager" fetchpriority="high" decoding="async" />
         <div class="art-overlay"><span>Art</span><span>Culture</span><span>People</span><span>Resilience</span></div>
       </div>
       <div class="hero-index">01 <span>—</span> 20</div>
@@ -73,7 +73,7 @@
     </section>
 
     <section class="featured-detail section">
-      <div class="detail-image"><img src="assets/images/Gbadero Faith-2D-LOVE & BOND 2- Oil & Acrylic-36 X 40.jpg" alt="Love & Bond II" loading="lazy" /></div>
+      <div class="detail-image"><img src="assets/images/Gbadero Faith-2D-LOVE & BOND 2- Oil & Acrylic-36 X 40.jpg" alt="Love & Bond II" loading="lazy" decoding="async" /></div>
       <div class="detail-copy"><p class="eyebrow">ARTWORK DETAIL</p><h2>Love &amp; <em>Bond II</em></h2><p class="meta">Oil and acrylic · 2025</p><p>A meditation on acceptance, inclusion and the bonds formed when people from different backgrounds meet. The intertwined figures express unity, respect and the strength found in shared humanity.</p><a class="button button-dark" href="#contact">Inquire About This Work →</a></div>
     </section>
 
@@ -129,7 +129,7 @@
         <label>Email<input id="email" name="email" type="email" required placeholder="you@example.com" /></label>
         <label>Subject<select id="subject" name="subject"><option>Artwork Inquiry - Faith Gbadero</option><option>Exhibition / Collaboration - Faith Gbadero</option><option>Commission - Faith Gbadero</option><option>General Message - Faith Gbadero</option></select></label>
         <label>Message<textarea id="message" name="message" rows="6" required placeholder="Type your message here..."></textarea></label>
-        <button class="button button-dark" type="submit">Send Message <span>↗</span></button>
+        <button class="button button-dark button-send" type="submit"><span class="btn-text">Send Message</span><span class="send-boy" aria-hidden="true"><span class="head"></span><span class="body"></span><span class="arm"></span><span class="letter"></span></span><span>↗</span></button>
         <small class="form-note">Your email app will open so you can review and send the message. Nothing is stored on this website.</small>
       </form>
     </section>
@@ -143,6 +143,6 @@
   </section>
 
   <div class="lightbox" id="lightbox" aria-hidden="true"><button class="lightbox-close" aria-label="Close">×</button><div class="lightbox-content"><div class="lightbox-art" id="lightboxArt"></div><div class="lightbox-info"><p class="eyebrow">SELECTED WORK</p><h2 id="lightboxTitle"></h2><p id="lightboxMeta"></p><p id="lightboxDescription"></p></div></div></div>
-  <script src="js/script.js"></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>
