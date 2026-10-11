@@ -127,8 +127,11 @@
       <form class="contact-form" id="contactForm" action="https://formsubmit.co/ajax/gbaderofaitha@gmail.com" method="POST">
         <label>Name<input id="name" name="name" type="text" required placeholder="Your name" /></label>
         <label>Email<input id="email" name="email" type="email" required placeholder="you@example.com" /></label>
-        <label>Subject<select id="subject" name="_subject"><option>Artwork Inquiry - Faith Gbadero</option><option>Exhibition / Collaboration - Faith Gbadero</option><option>Commission - Faith Gbadero</option><option>General Message - Faith Gbadero</option></select></label>
+        <label>Inquiry type<select id="subject" name="inquiry_type"><option>Artwork Inquiry</option><option>Exhibition / Collaboration</option><option>Commission</option><option>General Message</option></select></label>
         <label>Message<textarea id="message" name="message" rows="6" required placeholder="Type your message here..."></textarea></label>
+        <input type="hidden" name="_subject" value="New client message - Faith Gbadero" />
+        <input type="hidden" name="_replyto" value="" />
+        <input type="hidden" name="_template" value="table" />
         <button class="button button-dark button-send" type="submit"><span class="btn-text">Send Message</span><span class="send-boy" aria-hidden="true"><span class="head"></span><span class="body"></span><span class="arm"></span><span class="letter"></span></span><span>↗</span></button>
         <small class="form-note" id="formStatus" role="status" aria-live="polite">Messages are delivered to Faith via FormSubmit. Submissions are retained by the service for up to 30 days. The first submission requires a one-time inbox confirmation.</small>
       </form>
