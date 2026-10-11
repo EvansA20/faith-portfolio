@@ -33,3 +33,7 @@ html,body{max-width:100%;overflow-x:hidden}.hero{width:100%;max-width:100%;grid-
 .section{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.section.is-visible{opacity:1;transform:translateY(0)}
 .art-card,.studio-card,.media-item{transition:transform .35s ease,box-shadow .35s ease}.art-card:hover,.studio-card:hover,.media-item:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(36,27,15,.12)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.section{opacity:1;transform:none}}
+
+.collection-filters{flex-wrap:wrap}
+.collection-status{margin:18px 0 0;color:var(--muted);font-size:.72rem}
+.collection-filters .filter:focus-visible,.art-card:focus-visible,#lightboxPurchase:focus-visible,.lightbox-close:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
