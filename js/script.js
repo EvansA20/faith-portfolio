@@ -89,3 +89,30 @@ document.querySelector('#year').textContent=new Date().getFullYear();
 const cookieBanner=document.querySelector('#cookieBanner');const cookieName='cookie_consent';const cookieChoice=document.cookie.split('; ').find(row=>row.startsWith(`${cookieName}=`));if(!cookieChoice)cookieBanner.hidden=false;function saveCookieChoice(choice){document.cookie=`${cookieName}=${choice}; max-age=31536000; path=/; SameSite=Lax`;cookieBanner.hidden=true}document.querySelector('#acceptCookies').addEventListener('click',()=>saveCookieChoice('accepted'));document.querySelector('#rejectCookies').addEventListener('click',()=>saveCookieChoice('rejected'));
 const themeToggle=document.querySelector('#themeToggle');const savedTheme=localStorage.getItem('faith-theme');if(savedTheme==='dark')document.documentElement.dataset.theme='dark';function updateThemeToggle(){const dark=document.documentElement.dataset.theme==='dark';themeToggle.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');themeToggle.title=dark?'Switch to light mode':'Switch to dark mode';themeToggle.querySelector('span').textContent=dark?'☀':'☾'}updateThemeToggle();themeToggle.addEventListener('click',()=>{const dark=document.documentElement.dataset.theme!=='dark';document.documentElement.dataset.theme=dark?'dark':'light';localStorage.setItem('faith-theme',dark?'dark':'light');updateThemeToggle()});
 const revealSections=document.querySelectorAll('.section');revealSections.forEach(section=>section.classList.add('is-visible'));
+
+const sendButton=document.querySelector('.button-send');
+if(sendButton){
+  let popTimer;
+  sendButton.addEventListener('pointermove',event=>{
+    const bounds=sendButton.getBoundingClientRect();
+    const x=(event.clientX-bounds.left)/bounds.width-.5;
+    const y=(event.clientY-bounds.top)/bounds.height-.5;
+    sendButton.style.setProperty('--pointer-x',x.toFixed(2));
+    sendButton.style.setProperty('--pointer-y',y.toFixed(2));
+    sendButton.style.setProperty('--pointer-rotate-x',`${(-y*7).toFixed(2)}deg`);
+    sendButton.style.setProperty('--pointer-rotate-y',`${(x*12).toFixed(2)}deg`);
+  });
+  sendButton.addEventListener('pointerleave',()=>{
+    sendButton.style.setProperty('--pointer-x','0');
+    sendButton.style.setProperty('--pointer-y','0');
+    sendButton.style.setProperty('--pointer-rotate-x','0deg');
+    sendButton.style.setProperty('--pointer-rotate-y','0deg');
+  });
+  sendButton.addEventListener('click',()=>{
+    sendButton.classList.remove('is-pop');
+    void sendButton.offsetWidth;
+    sendButton.classList.add('is-pop');
+    clearTimeout(popTimer);
+    popTimer=setTimeout(()=>sendButton.classList.remove('is-pop'),720);
+  });
+}
