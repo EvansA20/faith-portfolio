@@ -64,6 +64,33 @@ document.querySelectorAll('img').forEach(image=>{
   if(image.complete&&!image.naturalWidth)removeBrokenImage(image);
 });
 const artGrid=document.querySelector('#artGrid');
+document.querySelectorAll('img').forEach(image=>{image.draggable=false;image.setAttribute('draggable','false')});
+document.addEventListener('contextmenu',event=>{
+  if(event.target instanceof Element&&event.target.closest('img,.art-image'))event.preventDefault();
+},true);
+document.addEventListener('dragstart',event=>{
+  if(event.target instanceof Element&&event.target.closest('img'))event.preventDefault();
+},true);
+artGrid.addEventListener('pointermove',event=>{
+  const card=event.target.closest('.art-card');
+  if(!card||event.pointerType==='touch')return;
+  const frame=card.querySelector('.art-image');
+  const bounds=frame.getBoundingClientRect();
+  const x=(event.clientX-bounds.left)/bounds.width-.5;
+  const y=(event.clientY-bounds.top)/bounds.height-.5;
+  card.style.setProperty('--art-tilt-x',`${(-y*9).toFixed(2)}deg`);
+  card.style.setProperty('--art-tilt-y',`${(x*11).toFixed(2)}deg`);
+  card.style.setProperty('--art-light-x',`${((x+.5)*100).toFixed(1)}%`);
+  card.style.setProperty('--art-light-y',`${((y+.5)*100).toFixed(1)}%`);
+  card.classList.add('is-tilting');
+});
+artGrid.addEventListener('pointerout',event=>{
+  const card=event.target.closest('.art-card');
+  if(!card||card.contains(event.relatedTarget))return;
+  card.classList.remove('is-tilting');
+  card.style.setProperty('--art-tilt-x','0deg');
+  card.style.setProperty('--art-tilt-y','0deg');
+});
 const collectionStatus=document.querySelector('#collectionStatus');
 function renderWorks(filter='all'){
   const filteredArtworks=artworks.filter(a=>filter==='all'||a.filter===filter);

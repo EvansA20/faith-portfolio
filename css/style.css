@@ -130,5 +130,16 @@ body.lightbox-open{overflow-y:hidden}
 @keyframes mailbox-pop{0%{transform:rotate(-90deg)}35%{transform:rotate(18deg)}65%{transform:rotate(-8deg)}100%{transform:rotate(-90deg)}}
 @keyframes letter-delivery{0%,12%{transform:translate3d(0,0,18px) rotate(-8deg) rotateY(0);opacity:1}28%,53%{transform:translate3d(-1px,-2px,20px) rotate(-15deg) rotateY(-8deg);opacity:1}61%{transform:translate3d(14px,-15px,28px) rotate(25deg) rotateY(25deg);opacity:1}68%{transform:translate3d(40px,-11px,22px) rotate(65deg) rotateY(65deg) scale(.78);opacity:1}72%{transform:translate3d(40px,-8px,13px) rotate(90deg) rotateY(90deg) scale(.55);opacity:0}78%,100%{transform:translate3d(0,0,18px) rotate(-8deg) rotateY(0);opacity:0}}
 @media(prefers-reduced-motion:reduce){.mailbox-flag{animation:none!important;transform:rotate(0)!important}.button-send.is-pop .mailbox-flag{animation:none!important}}
+.art-card{--art-tilt-x:0deg;--art-tilt-y:0deg;perspective:900px;transform-style:preserve-3d;transition:transform .32s cubic-bezier(.2,.7,.2,1),filter .32s ease}
+.art-image{position:relative;transform-style:preserve-3d;transition:transform .38s cubic-bezier(.2,.7,.2,1),box-shadow .38s ease;will-change:transform}
+.art-image>img{transform:translateZ(0) scale(1.001);transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .45s ease;backface-visibility:hidden}
+.art-image::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;background:radial-gradient(ellipse at var(--art-light-x,50%) var(--art-light-y,50%),rgba(255,255,255,.24),rgba(255,255,255,.06) 24%,transparent 62%);mix-blend-mode:screen;transition:opacity .35s ease}
+.art-card.is-tilting{position:relative;z-index:2;filter:drop-shadow(0 12px 12px rgba(39,27,12,.18))}
+.art-card.is-tilting .art-image{transform:rotateX(var(--art-tilt-x)) rotateY(var(--art-tilt-y)) translateY(-3px);box-shadow:0 18px 24px rgba(39,27,12,.22)}
+.art-card.is-tilting .art-image>img{transform:translateZ(12px) scale(1.035);filter:saturate(1.04)}
+.art-card.is-tilting .art-image::after{opacity:.85}
+.art-card:focus-visible .art-image{outline:2px solid var(--gold);outline-offset:4px}
+@media(hover:none),(prefers-reduced-motion:reduce){.art-card,.art-image,.art-image>img,.art-image::after{transition:none!important;will-change:auto}.art-card.is-tilting .art-image{transform:none;box-shadow:none}.art-card.is-tilting .art-image>img{transform:none;filter:none}.art-card.is-tilting .art-image::after{opacity:0}}
+img{-webkit-user-drag:none;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none}
 @keyframes mailbox-flag{0%,12%,53%{transform:rotate(-90deg)}61%,69%{transform:rotate(0deg)}74%{transform:rotate(10deg)}78%,100%{transform:rotate(-90deg)}}
 @keyframes letter-play{0%{transform:translate3d(0,0,18px) rotate(-8deg) rotateY(0);opacity:1}34%{transform:translate3d(-2px,-14px,27px) rotate(-28deg) rotateY(-25deg);opacity:1}70%{transform:translate3d(40px,-11px,24px) rotate(58deg) rotateY(55deg) scale(.8);opacity:1}100%{transform:translate3d(40px,-8px,13px) rotate(90deg) rotateY(90deg) scale(.5);opacity:0}}
